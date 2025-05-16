@@ -1,7 +1,7 @@
 import { Colors } from "@/constants/Colors";
 import { commonStyles } from "@/styles/commonStyles";
 import { Link } from "expo-router";
-import React from "react";
+import React, { memo } from "react";
 import { Image, StyleSheet, Text, View } from "react-native";
 import { Repository } from "../../types/types";
 import Statistic from "./Statistic";
@@ -45,7 +45,7 @@ const RepositoryCard: React.FC<RepositoryCardProps> = ({ item }) => {
   );
 };
 
-export default RepositoryCard;
+export default memo(RepositoryCard);
 
 const styles = StyleSheet.create({
   container: {
