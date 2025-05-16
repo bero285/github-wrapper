@@ -4,6 +4,7 @@ import RepoDetailCard from "@/components/ui/repository/RepoDetailCard";
 import RepoError from "@/components/ui/repository/RepoError";
 import RepoHeader from "@/components/ui/repository/RepoHeader";
 import RepoLoading from "@/components/ui/repository/RepoLoading";
+import Screen from "@/components/ui/Screen";
 import Statistic from "@/components/ui/Statistic";
 import { Colors } from "@/constants/Colors";
 import githubController from "@/services/github.cotroller";
@@ -15,7 +16,6 @@ import AntDesign from "@expo/vector-icons/AntDesign";
 import { useLocalSearchParams } from "expo-router";
 import React, { useEffect, useState } from "react";
 import { ScrollView, StyleSheet, Text, View } from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
 
 const RepositoryScreen = () => {
   const { fullName } = useLocalSearchParams();
@@ -81,7 +81,7 @@ const RepositoryScreen = () => {
   }
 
   return (
-    <SafeAreaView style={{ flex: 1 }}>
+    <Screen>
       <BackButton />
       <ScrollView style={{ flex: 1 }} contentContainerStyle={{ flexGrow: 1 }}>
         <View style={commonStyles.container}>
@@ -123,7 +123,7 @@ const RepositoryScreen = () => {
           />
         </View>
       </ScrollView>
-    </SafeAreaView>
+    </Screen>
   );
 };
 

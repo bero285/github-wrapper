@@ -1,6 +1,7 @@
 import EmptyContainer from "@/components/ui/EmptyContainer";
 import Loader from "@/components/ui/Loader";
 import RepositoryCard from "@/components/ui/RepositoryCard";
+import Screen from "@/components/ui/Screen";
 import { Colors } from "@/constants/Colors";
 import useDebounce from "@/hooks/useDebounce";
 import githubController from "@/services/github.cotroller";
@@ -8,7 +9,6 @@ import { commonStyles } from "@/styles/commonStyles";
 import AntDesign from "@expo/vector-icons/AntDesign";
 import React, { useCallback, useEffect, useState } from "react";
 import { FlatList, StyleSheet, Text, TextInput, View } from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
 
 const index = () => {
   const [search, setSearch] = useState("");
@@ -65,7 +65,7 @@ const index = () => {
   };
 
   return (
-    <SafeAreaView style={{ flex: 1 }}>
+    <Screen>
       <View style={commonStyles.container}>
         <Text style={commonStyles.headerText}>Github Search</Text>
         <View style={styles.search}>
@@ -86,6 +86,7 @@ const index = () => {
           keyExtractor={(item) => item.id.toString()}
           onEndReachedThreshold={0.5}
           onEndReached={handleLoadMore}
+          removeClippedSubviews={true}
           showsVerticalScrollIndicator={false}
           ListFooterComponent={loading ? <Loader /> : null}
           ListEmptyComponent={
@@ -93,7 +94,7 @@ const index = () => {
           }
         />
       </View>
-    </SafeAreaView>
+    </Screen>
   );
 };
 

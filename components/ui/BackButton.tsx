@@ -18,10 +18,9 @@ export default BackButton;
 
 const styles = StyleSheet.create({
   backButtonContainer: {
-    paddingHorizontal: 10,
+    paddingHorizontal: 20,
     paddingVertical: 12,
     width: "100%",
-    backgroundColor: Colors.primary,
     alignItems: "flex-start",
   },
   backButton: {
